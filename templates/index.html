@@ -77,10 +77,60 @@
             border-radius: 5px;
             margin-bottom: 20px;
             font-size: 14px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
         }
         .cost-info h3 {
             margin-top: 0;
             color: #2e7d32;
+        }
+        .cost-info-content {
+            flex: 1;
+        }
+        .duration-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            min-width: 200px;
+        }
+        .duration-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .duration-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .btn-3month {
+            background-color: #4CAF50;
+        }
+        .btn-3month:hover {
+            background-color: #45a049;
+        }
+        .btn-6month {
+            background-color: #2196F3;
+        }
+        .btn-6month:hover {
+            background-color: #1976D2;
+        }
+        .btn-9month {
+            background-color: #FF9800;
+        }
+        .btn-9month:hover {
+            background-color: #F57C00;
+        }
+        .btn-18month {
+            background-color: #9C27B0;
+        }
+        .btn-18month:hover {
+            background-color: #7B1FA2;
         }
         .credit {
             text-align: center;
@@ -113,6 +163,26 @@
             100% { left: 100%; }
         }
     </style>
+    <script>
+        function fillDuration(months) {
+            // Define the class amounts for each duration
+            const durations = {
+                3: { education: 12, group: 6, faceToFace: 1 },    // Placeholder values
+                6: { education: 24, group: 12, faceToFace: 2 },   // Placeholder values
+                9: { education: 36, group: 18, faceToFace: 3 },   // Placeholder values
+                18: { education: 72, group: 36, faceToFace: 6 }   // Placeholder values
+            };
+            
+            const duration = durations[months];
+            if (duration) {
+                document.getElementById('num_education').value = duration.education;
+                document.getElementById('num_group').value = duration.group;
+                document.getElementById('num_face_to_face').value = duration.faceToFace;
+                // Re-entry classes typically stay at 0 unless specified
+                document.getElementById('num_reentry').value = 0;
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="main-wrapper">
@@ -121,15 +191,23 @@
         <h1>DUI Program Transfer-In Calculator</h1>
         
         <div class="cost-info">
-            <h3>Cost Information:</h3>
-            <ul>
-                <li>Education Classes: $17 per session</li>
-                <li>Group Classes: $54 per session</li>
-                <li>Face-to-Face Interviews: $25 per session</li>
-                <li>Re-Entry Classes: $80 per session</li>
-                <li>Transfer Fee: $75</li>
-                <li>Ventura County Fee: $50 (if NOT transferring from Ventura County)</li>
-            </ul>
+            <div class="cost-info-content">
+                <h3>Cost Information:</h3>
+                <ul>
+                    <li>Education Classes: $17 per session</li>
+                    <li>Group Classes: $54 per session</li>
+                    <li>Face-to-Face Interviews: $25 per session</li>
+                    <li>Re-Entry Classes: $80 per session</li>
+                    <li>Transfer Fee: $75</li>
+                    <li>Ventura County Fee: $50 (if NOT transferring from Ventura County)</li>
+                </ul>
+            </div>
+            <div class="duration-buttons">
+                <button type="button" class="duration-btn btn-3month" onclick="fillDuration(3)">3 Month</button>
+                <button type="button" class="duration-btn btn-6month" onclick="fillDuration(6)">6 Month</button>
+                <button type="button" class="duration-btn btn-9month" onclick="fillDuration(9)">9 Month</button>
+                <button type="button" class="duration-btn btn-18month" onclick="fillDuration(18)">18 Month</button>
+            </div>
         </div>
 
         <form action="/calculate" method="POST">
