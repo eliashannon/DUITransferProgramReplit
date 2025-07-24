@@ -1,6 +1,11 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
+import os
 
 app = Flask(__name__)
+
+@app.route('/attached_assets/<filename>')
+def uploaded_file(filename):
+    return send_from_directory('attached_assets', filename)
 
 @app.route('/')
 def home():

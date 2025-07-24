@@ -8,16 +8,28 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 600px;
+            max-width: 1000px;
             margin: 50px auto;
             padding: 20px;
             background-color: #f5f5f5;
+        }
+        .main-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            justify-content: center;
+        }
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-top: 50px;
         }
         .container {
             background-color: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex: 0 0 600px;
         }
         h1 {
             color: #333;
@@ -73,7 +85,9 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="main-wrapper">
+        <img src="/attached_assets/aers_logo-4_1753386205509.jpg" alt="AERS Logo" class="logo">
+        <div class="container">
         <h1>DUI Program Transfer-In Calculator</h1>
         
         <div class="cost-info">
@@ -125,6 +139,8 @@
 
             <button type="submit" class="submit-btn">Calculate Program Cost</button>
         </form>
+        </div>
+        <img src="/attached_assets/aers_logo-4_1753386205509.jpg" alt="AERS Logo" class="logo">
     </div>
 </body>
 </html>
