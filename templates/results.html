@@ -114,6 +114,13 @@
             </div>
             {% endif %}
             
+            {% if num_reentry > 0 %}
+            <div class="cost-line">
+                <span>Re-Entry Classes: {{ num_reentry }} × ${{ reentry_cost }}</span>
+                <span>${{ total_reentry }}</span>
+            </div>
+            {% endif %}
+            
             <div class="cost-line">
                 <span>Transfer Fee</span>
                 <span>${{ transfer_fee }}</span>
