@@ -20,7 +20,7 @@ def calculate():
     education_cost = 17
     group_cost = 54
     face_to_face_cost = 25
-    ventura_fee = 50 if from_ventura == "yes" else 0
+    ventura_fee = 50 if from_ventura == "no" else 0
 
     # Calculations
     total_education = num_education * education_cost
