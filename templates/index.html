@@ -167,11 +167,11 @@
         function fillDuration(months) {
             // Define the class amounts for each duration
             const durations = {
-                3: { education: 12, group: 6, faceToFace: 1 },    // Placeholder values
-                6: { education: 24, group: 12, faceToFace: 2 },   // Placeholder values
-                9: { education: 36, group: 18, faceToFace: 3 },   // Placeholder values
-                18: { education: 72, group: 36, faceToFace: 6 }   // Placeholder values
-            };
+                3: { education: 12, group: 9, faceToFace: 3, reentry: 0 },  
+                6: { education: 12, group: 15, faceToFace: 12, reentry: 0 }, 
+                9: { education: 12, group: 23, faceToFace: 13, reentry: 0 }, 
+                18: { education: 12, group: 26, faceToFace: 28, reentry: 6 }  
+                };
             
             const duration = durations[months];
             if (duration) {
